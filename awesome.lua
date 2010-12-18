@@ -6,7 +6,7 @@ modkey = "Mod4"
 last_selected_tag = nil
 globalkeys = awful.util.table.join(
     globalkeys,
-    awful.key({modkey}, "e", revelation.revelation),
+    -- awful.key({modkey}, "e", revelation.revelation),
 
     -- all minimized clients are restored
     awful.key({modkey}, "d",
