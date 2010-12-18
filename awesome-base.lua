@@ -18,6 +18,8 @@ beautiful.init("/home/thet/.config/awesome/thet-theme/theme.lua")
 terminal = "termit"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
+calendar = "orage"
+clock = "gworldclock"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -122,7 +124,9 @@ for s = 1, screen.count() do
     
     -- Create a textclock widget
     mytextclock[s] = awful.widget.textclock({ align = "right" })
-    mytextclock[s]:buttons(awful.util.table.join(awful.button({}, 1, awful.tag.viewtoggle)))
+    mytextclock[s]:buttons(awful.util.table.join(
+        awful.button({}, 1, function () awful.util.spawn(calendar) end),
+        awful.button({}, 3, function () awful.util.spawn(clock) end)))
     
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
