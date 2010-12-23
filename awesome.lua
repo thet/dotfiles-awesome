@@ -45,20 +45,27 @@ globalkeys = awful.util.table.join(
             end
         end),
 
+    awful.key({modkey}, "b", function ()
+        mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+    end),
+
+
     -- trying to build a tiling config like the one in compiz
     -- to manually set the layout
 
     awful.key({modkey, "Control"}, "a",
         function ()
             local curclient = awful.client.focus.history.get()
-            local sgeo = screen[1].geometry
+            local sgeo = screen[mouse.screen].geometry
+            local wgeo = mywibox[mouse.screen]:geometry()
+            local wvis = mywibox[mouse.screen].visible
             local cgeo = curclient:geometry()
             local divisor = get_divisor(cgeo.width, sgeo.width)
             awful.client.floating.set(curclient, true)
             --wgeo = wibox[1].geometry
             local w = math.floor(sgeo.width/divisor)
             local x = 0
-            local y = 19
+            local y = wvis and wgeo.height or 0
             local h = sgeo.height - y 
             curclient:geometry({x=x, y=y, width=w, height=h})
             naughty.notify({
@@ -70,14 +77,16 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Control"}, "d",
         function ()
             local curclient = awful.client.focus.history.get()
-            local sgeo = screen[1].geometry
+            local sgeo = screen[mouse.screen].geometry
+            local wgeo = mywibox[mouse.screen]:geometry()
+            local wvis = mywibox[mouse.screen].visible
             local cgeo = curclient:geometry()
             local divisor = get_divisor(cgeo.width, sgeo.width)
             awful.client.floating.set(curclient, true)
             --wgeo = wibox[1].geometry
             local w = math.floor(sgeo.width/divisor)
             local x = sgeo.width - w
-            local y = 19
+            local y = wvis and wgeo.height or 0
             local h = sgeo.height - y 
             curclient:geometry({x=x, y=y, width=w, height=h})
             naughty.notify({
