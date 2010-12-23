@@ -3,12 +3,15 @@ require("awesome-base")
 
 require("awful")
 modkey = "Mod4"
+
+
+
 last_selected_tag = nil
 globalkeys = awful.util.table.join(
     globalkeys,
     -- awful.key({modkey}, "e", revelation.revelation),
 
-    -- all minimized clients are restored
+    -- un/minimize all clients of a tag 
     awful.key({modkey}, "d",
         function()
             local curtag = awful.tag.selected()
@@ -44,25 +47,56 @@ globalkeys = awful.util.table.join(
 
     -- trying to build a tiling config like the one in compiz
     -- to manually set the layout
-    awful.key({modkey}, "a",
+
+    awful.key({modkey, "Control"}, "a",
         function ()
             local curclient = awful.client.focus.history.get()
+            local sgeo = screen[1].geometry
+            local cgeo = curclient:geometry()
+            local divisor = get_divisor(cgeo.width, sgeo.width)
             awful.client.floating.set(curclient, true)
-            sgeo = screen[1].geometry
-            --curclient:geometry({
-            --    x = sgeo.x,
-            --    y = sgeo.y,
-            --    width = sgeo.width / 2,
-            --    height = sgeo.height
-            --})
-            curclient:geometry({
-                x = 300,
-                y = 300,
-                width = 300,
-                height = 300
+            --wgeo = wibox[1].geometry
+            local w = math.floor(sgeo.width/divisor)
+            local x = 0
+            local y = 19
+            local h = sgeo.height - y 
+            curclient:geometry({x=x, y=y, width=w, height=h})
+            naughty.notify({
+                text = "x:"..cgeo.width.." y:"..y.." w:"..w.." h:"..h,
+                timeout = 5,
+            })
+            curclient:raise()
+        end),
+    awful.key({modkey, "Control"}, "d",
+        function ()
+            local curclient = awful.client.focus.history.get()
+            local sgeo = screen[1].geometry
+            local cgeo = curclient:geometry()
+            local divisor = get_divisor(cgeo.width, sgeo.width)
+            awful.client.floating.set(curclient, true)
+            --wgeo = wibox[1].geometry
+            local w = math.floor(sgeo.width/divisor)
+            local x = sgeo.width - w
+            local y = 19
+            local h = sgeo.height - y 
+            curclient:geometry({x=x, y=y, width=w, height=h})
+            naughty.notify({
+                text = "x:"..cgeo.width.." y:"..y.." w:"..w.." h:"..h,
+                timeout = 5,
             })
             curclient:raise()
         end)
-
 )
 root.keys(globalkeys)
+
+function get_divisor(cwidth, swidth)
+    local divisor = 2 
+    if cwidth>math.floor(swidth/2) then
+        divisor = 2
+    elseif cwidth>math.floor(swidth/3) then
+        divisor = 3
+    elseif cwidth>math.floor(swidth/4) then
+        divisor = 4
+    end
+    return divisor
+end
