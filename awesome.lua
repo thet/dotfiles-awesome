@@ -4,6 +4,8 @@ require("grid")
 
 require("awful")
 
+browser = 'firefox'
+
 last_selected_tag = nil
 globalkeys = awful.util.table.join(
     globalkeys,
@@ -49,4 +51,21 @@ globalkeys = awful.util.table.join(
 
 )
 root.keys(globalkeys)
+
+awful.rules.rules = {
+    { rule = { },
+      properties = { border_width = beautiful.border_width,
+                     border_color = beautiful.border_normal,
+                     focus = true,
+                     keys = clientkeys,
+                     buttons = clientbuttons } },
+    { rule = { class = "MPlayer" },
+      properties = { floating = true } },
+    { rule = { class = "pinentry" },
+      properties = { floating = true } },
+    { rule = { class = "gimp" },
+      properties = { floating = true } },
+    { rule = { instance = "screenruler" },
+      properties = { floating = true } }
+}
 
