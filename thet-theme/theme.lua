@@ -8,8 +8,8 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/zenburn/zenburn-background.png" }
--- }}}
+theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/dan-2ao.jpg" }
+-- }}
 
 -- {{{ Styles
 theme.font      = "sans 8"
