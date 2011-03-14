@@ -8,7 +8,8 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/dan-2ao.jpg" }
+-- theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/backgrounds/dan-2ao.jpg" }
+theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/backgrounds/spacefun-wallpaper-widescreen.svg" }
 -- }}
 
 -- {{{ Styles
