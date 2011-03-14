@@ -8,31 +8,31 @@
 
 -- {{{ Main
 theme = {}
--- theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/backgrounds/dan-2ao.jpg" }
-theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/backgrounds/spacefun-wallpaper-widescreen.svg" }
+theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/backgrounds/dan-2ao.jpg" }
+-- theme.wallpaper_cmd = { "awsetbg /home/thet/.config/awesome/thet-theme/backgrounds/spacefun-wallpaper-widescreen.svg" }
 -- }}
 
 -- {{{ Styles
 theme.font      = "sans 8"
 
 -- {{{ Colors
-theme.fg_normal = "#DCDCCC"
-theme.fg_focus  = "#F0DFAF"
-theme.fg_urgent = "#CC9393"
+theme.fg_normal = "#FFFFFF"
+theme.fg_focus  = "#000000"
+theme.fg_urgent = "#FF0000"
 theme.bg_normal = "#3F3F3F"
-theme.bg_focus  = "#1E2320"
-theme.bg_urgent = "#3F3F3F"
+theme.bg_focus  = "#FF0000"
+theme.bg_urgent = "#00FF00"
 -- }}}
 
 -- {{{ Borders
 theme.border_width  = "0"
 theme.border_normal = "#3F3F3F"
-theme.border_focus  = "#6F6F6F"
-theme.border_marked = "#CC9393"
+theme.border_focus  = "#949494"
+theme.border_marked = "#00FF00"
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_bg_focus  = "#3F3F3F"
+theme.titlebar_bg_focus  = "#949494"
 theme.titlebar_bg_normal = "#3F3F3F"
 -- }}}
 
