@@ -80,7 +80,7 @@ theme.taglist_squares_unsel = "/home/thet/.config/awesome/thet-theme/taglist/squ
 -- {{{ Misc
 theme.awesome_icon           = "/home/thet/.config/awesome/thet-theme/awesome-icon.png"
 theme.menu_submenu_icon      = "/home/thet/.config/awesome/thet-theme/submenu.png"
-theme.tasklist_floating_icon = "/home/thet/.config/awesome/thet-theme/layouts/floatingw.png"
+theme.tasklist_floating_icon = "/home/thet/.config/awesome/thet-theme/layouts/floating.png"
 -- }}}
 
 -- {{{ Layout
