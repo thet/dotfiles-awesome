@@ -45,6 +45,7 @@ globalkeys = awful.util.table.join(
             end
         end),
 
+    -- https://wiki.archlinux.org/index.php/Awesome3#Hide_.2F_show_wibox_in_awesome_3
     awful.key({modkey}, "b", function ()
         mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
     end)
