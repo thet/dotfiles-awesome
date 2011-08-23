@@ -11,18 +11,19 @@ globalkeys = awful.util.table.join(
     globalkeys,
     -- awful.key({modkey}, "e", revelation.revelation),
 
+    -- DON'T - useless and disturbing
     -- un/minimize all clients of a tag 
-    awful.key({modkey}, "d",
-        function()
-            local curtag = awful.tag.selected()
-            if curtag then
-                last_selected_tag = curtag
-            else
-                curtag = last_selected_tag or 1
-            end
-            awful.tag.viewtoggle(curtag)
-        end
-    ),
+    --awful.key({modkey}, "d",
+    --    function()
+    --        local curtag = awful.tag.selected()
+    --        if curtag then
+    --            last_selected_tag = curtag
+    --        else
+    --            curtag = last_selected_tag or 1
+    --        end
+    --        awful.tag.viewtoggle(curtag)
+    --    end
+    --),
 
     -- app switching bound to meta-tab
     awful.key({modkey}, "Tab",
