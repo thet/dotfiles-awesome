@@ -31,18 +31,18 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.floating,
     awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.fair,
+    awful.layout.suit.max.fullscreen
+    --awful.layout.suit.floating,
     --awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.magnifier,
     --awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen
 }
 -- }}}
 
@@ -51,7 +51,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "1 dev", "2 dev", "3 dev", "4 dok", "5 dok", "6 tmp", "7 musiq", "8 web", "9 irc" }, s, layouts[2])
+    tags[s] = awful.tag({ "1 dev", "2 dev", "3 dev", "4 dok", "5 dok", "6 tmp", "7 musiq", "8 web", "9 irc" }, s, layouts[1])
 end
 -- }}}
 
