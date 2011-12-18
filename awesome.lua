@@ -1,4 +1,5 @@
 require("awesome-base")
+require("windowrules")
 require("grid")
 --require("includes/bioe007-awesome-configs/revelation")
 
@@ -49,25 +50,16 @@ globalkeys = awful.util.table.join(
     -- https://wiki.archlinux.org/index.php/Awesome3#Hide_.2F_show_wibox_in_awesome_3
     awful.key({modkey}, "b", function ()
         mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
-    end)
+    end),
+
+    -- bind PrintScrn to capture a screen
+    awful.key(
+        {},
+        "Print",
+        function()
+            awful.util.spawn("capscr",false)
+        end
+    )
 
 )
 root.keys(globalkeys)
-
-awful.rules.rules = {
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    { rule = { instance = "screenruler" },
-      properties = { floating = true } }
-}
-
