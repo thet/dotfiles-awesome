@@ -59,7 +59,15 @@ globalkeys = awful.util.table.join(
         function()
             awful.util.spawn("capscr",false)
         end
-    )
+    ),
 
+    -- instead of modkey+control+j/k just allow modkey+i for switching screens
+    awful.key({modkey}, 'p', function () awful.screen.focus_relative(1) end),
+
+    awful.key({modkey, "Shift"}, "Return", function () awful.util.spawn("nautilus") end),
+    --awful.key({modkey, "Alt"}, "Return", function () awful.util.spawn("gedit") end),
+    awful.key({modkey, "Control"}, "Return", function () awful.util.spawn("firefox") end)
+    -- awful.key({modkey, "Alt", "Control"}, "Return", function () awful.util.spawn("pidgin & skype & evolution") end),
+    -- awful.key({modkey, "Shift", "Alt", "Control"}, "Return", function () awful.util.spawn("gnome-terminal") end)
 )
 root.keys(globalkeys)
