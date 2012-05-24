@@ -27,12 +27,12 @@ globalkeys = awful.util.table.join(
     --),
 
     -- app switching bound to meta-tab
-    awful.key({modkey}, "Tab",
+    awful.key({'Control'}, "Tab",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({modkey, "Shift"}, "Tab",
+    awful.key({'Control', "Shift"}, "Tab",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
@@ -64,10 +64,13 @@ globalkeys = awful.util.table.join(
     -- instead of modkey+control+j/k just allow modkey+i for switching screens
     awful.key({modkey}, 'p', function () awful.screen.focus_relative(1) end),
 
-    awful.key({modkey, "Shift"}, "Return", function () awful.util.spawn("nautilus") end),
-    --awful.key({modkey, "Alt"}, "Return", function () awful.util.spawn("gedit") end),
-    awful.key({modkey, "Control"}, "Return", function () awful.util.spawn("firefox") end)
-    -- awful.key({modkey, "Alt", "Control"}, "Return", function () awful.util.spawn("pidgin & skype & evolution") end),
-    -- awful.key({modkey, "Shift", "Alt", "Control"}, "Return", function () awful.util.spawn("gnome-terminal") end)
+    awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end),
+    awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("gedit") end),
+    awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
+    awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("chromium-browser") end),
+    awful.key({modkey, "Mod1"}, "p", function () awful.util.spawn("pidgin") end),
+    awful.key({modkey, "Mod1"}, "s", function () awful.util.spawn("skype") end),
+    awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("thunderbird") end),
+    awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gnome-terminal") end)
 )
 root.keys(globalkeys)
