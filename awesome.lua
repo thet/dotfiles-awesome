@@ -71,6 +71,7 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Mod1"}, "p", function () awful.util.spawn("pidgin") end),
     awful.key({modkey, "Mod1"}, "s", function () awful.util.spawn("skype") end),
     awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("thunderbird") end),
-    awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gnome-terminal") end)
+    awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gnome-terminal") end),
+    awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster-time-tracker") end)
 )
 root.keys(globalkeys)
