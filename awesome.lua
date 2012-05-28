@@ -61,7 +61,7 @@ globalkeys = awful.util.table.join(
         end
     ),
 
-    -- instead of modkey+control+j/k just allow modkey+i for switching screens
+    -- instead of modkey+control+j/k just allow modkey+p for switching screens
     awful.key({modkey}, 'p', function () awful.screen.focus_relative(1) end),
 
     awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end),
