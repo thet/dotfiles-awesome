@@ -19,17 +19,17 @@ theme.font      = "sans 8"
 -- {{{ Colors
 theme.fg_normal = "#FFFFFF"
 theme.fg_focus  = "#000000"
-theme.fg_urgent = "#FF0000"
+theme.fg_urgent = "#0000FF"
 theme.bg_normal = "#3F3F3F"
-theme.bg_focus  = "#FF0000"
-theme.bg_urgent = "#00FF00"
+theme.bg_focus  = "#00FF00"
+theme.bg_urgent = "#FFFF00"
 -- }}}
 
 -- {{{ Borders
 theme.border_width  = "1"
 theme.border_normal = "#3F3F3F"
-theme.border_focus  = "#FF0000"
-theme.border_marked = "#00FF00"
+theme.border_focus  = "#00FF00"
+theme.border_marked = "#FFFF00"
 -- }}}
 
 -- {{{ Titlebars
