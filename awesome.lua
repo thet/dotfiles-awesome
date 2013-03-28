@@ -75,3 +75,16 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster-time-tracker") end)
 )
 root.keys(globalkeys)
+
+
+-- Indicate focused windows
+function client_getfocus(c)
+    c.border_color = beautiful.border_focus
+    c.opacity = 1.0
+end
+function client_unfocus(c)
+    c.border_color = beautiful.border_normal
+    c.opacity = 0.80
+end
+client.add_signal("focus", client_getfocus)
+client.add_signal("unfocus", client_unfocus)

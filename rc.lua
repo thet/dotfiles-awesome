@@ -5,6 +5,8 @@
 
 require("awful")
 require("naughty")
+--awful.util.spawn_with_shell("xcompmgr -cF &")
+awful.util.spawn_with_shell("unagi &")
 
 confdir = awful.util.getdir("config")
 local rc, err = loadfile(confdir .. "/awesome.lua");
