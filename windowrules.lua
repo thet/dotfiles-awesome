@@ -11,6 +11,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+    { rule = { class = "thunderbird" },
+      properties = { floating = false } },
     { rule = { instance = "screenruler" },
       properties = { floating = true } }
 }
