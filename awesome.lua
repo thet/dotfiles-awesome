@@ -13,7 +13,7 @@ globalkeys = awful.util.table.join(
     -- awful.key({modkey}, "e", revelation.revelation),
 
     -- DON'T - useless and disturbing
-    -- un/minimize all clients of a tag 
+    -- un/minimize all clients of a tag
     --awful.key({modkey}, "d",
     --    function()
     --        local curtag = awful.tag.selected()
@@ -61,18 +61,28 @@ globalkeys = awful.util.table.join(
         end
     ),
 
-    -- instead of modkey+control+j/k just allow modkey+p for switching screens
-    awful.key({modkey}, 'p', function () awful.screen.focus_relative(1) end),
+    -- better screen nav
+    awful.key({ modkey            }, 'p', function () awful.screen.focus_relative(1) end),  -- keep modkey-p to disable gnome screen rescan
+    awful.key({ modkey            }, 'Up', function () awful.screen.focus_relative(1) end),
+    awful.key({ modkey            }, 'Down', function () awful.screen.focus_relative(1) end),
+    awful.key({ modkey, "Shift"   }, "Up",      awful.client.movetoscreen),
+    awful.key({ modkey, "Shift"   }, "Down",    awful.client.movetoscreen),
 
+    -- quickstart programs
     awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end),
-    awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("gedit") end),
+    awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("evolution") end),
     awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
     awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("chromium-browser") end),
     awful.key({modkey, "Mod1"}, "p", function () awful.util.spawn("pidgin") end),
     awful.key({modkey, "Mod1"}, "s", function () awful.util.spawn("skype") end),
-    awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("thunderbird") end),
-    awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gnome-terminal") end),
-    awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster-time-tracker") end)
+    awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("gnome-terminal") end),
+    awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gedit") end),
+    awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster-time-tracker") end),
+
+    -- disable/enable touchpad
+    awful.key({modkey, "Mod1"}, "space", function () awful.util.spawn("xinput disable 11") end),
+    awful.key({modkey, "Mod1", "Control"}, "space", function () awful.util.spawn("xinput enable 11") end)
+
 )
 root.keys(globalkeys)
 
@@ -84,7 +94,7 @@ function client_getfocus(c)
 end
 function client_unfocus(c)
     c.border_color = beautiful.border_normal
-    c.opacity = 0.80
+    c.opacity = 0.90
 end
 client.add_signal("focus", client_getfocus)
 client.add_signal("unfocus", client_unfocus)
