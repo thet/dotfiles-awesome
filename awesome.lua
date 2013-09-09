@@ -98,3 +98,10 @@ function client_unfocus(c)
 end
 client.add_signal("focus", client_getfocus)
 client.add_signal("unfocus", client_unfocus)
+
+-- Prevent the mouse scroll wheel from changing tags
+-- https://wiki.archlinux.org/index.php/Awesome#Prevent_the_mouse_scroll_wheel_from_changing_tags
+-- {{{ Mouse bindings
+root.buttons(awful.util.table.join(
+    awful.button({ }, 3, function () mymainmenu:toggle() end)))
+-- }}}
