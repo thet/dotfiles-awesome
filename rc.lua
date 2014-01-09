@@ -6,7 +6,7 @@
 require("awful")
 require("naughty")
 awful.util.spawn_with_shell("startsession.sh &")
---awful.util.spawn_with_shell("xcompmgr -cF &")
+-- awful.util.spawn_with_shell("xcompmgr -cF &")
 --awful.util.spawn_with_shell("unagi &")
 
 --dofile("/etc/xdg/awesome/rc.lua");

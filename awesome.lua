@@ -69,7 +69,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "Down",    awful.client.movetoscreen),
 
     -- quickstart programs
-    awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end),
+    awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nemo") end), -- nautilus alternative nemo
     awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("evolution") end),
     awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
     awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("chromium-browser") end),
@@ -78,6 +78,9 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("gnome-terminal") end),
     awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gedit") end),
     awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster-time-tracker") end),
+    awful.key({modkey, "Mod1"}, "1", function () awful.util.spawn("gnome-screenshot") end),
+    awful.key({modkey, "Mod1"}, "2", function () awful.util.spawn("gnome-screenshot --window") end),
+    awful.key({modkey, "Mod1"}, "3", function () awful.util.spawn("gnome-screenshot --interactive") end),
 
     -- disable/enable touchpad
     awful.key({modkey, "Mod1"}, "space", function () awful.util.spawn("xinput disable 11") end),
