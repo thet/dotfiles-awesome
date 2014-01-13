@@ -65,7 +65,8 @@ for s = 1, screen.count() do
 end
 -- }}}
 
-
+-- https://bbs.archlinux.org/viewtopic.php?pid=1325314
+-- https://bbs.archlinux.org/viewtopic.php?id=126758
 --{{{ Tag Wallpapers
 --if beautiful.wallpaper then
 --    for s = 1, screen.count() do
