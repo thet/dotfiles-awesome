@@ -50,7 +50,13 @@ local layouts =
 -- {{{ Wallpaper
 if beautiful.wallpaper then
     for s = 1, screen.count() do
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        if s == 2 then
+            theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/bfi.org/2.jpg"
+            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        else
+            theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/bfi.org/1.jpg"
+            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        end
     end
 end
 -- }}}
