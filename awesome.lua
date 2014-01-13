@@ -3,7 +3,8 @@ require("windowrules")
 require("grid")
 --require("includes/bioe007-awesome-configs/revelation")
 
-require("awful")
+local awful = require("awful")
+local beautiful = require("beautiful")
 
 browser = 'firefox'
 
@@ -99,8 +100,8 @@ function client_unfocus(c)
     c.border_color = beautiful.border_normal
     c.opacity = 0.90
 end
-client.add_signal("focus", client_getfocus)
-client.add_signal("unfocus", client_unfocus)
+client.connect_signal("focus", client_getfocus)
+client.connect_signal("unfocus", client_unfocus)
 
 -- Prevent the mouse scroll wheel from changing tags
 -- https://wiki.archlinux.org/index.php/Awesome#Prevent_the_mouse_scroll_wheel_from_changing_tags

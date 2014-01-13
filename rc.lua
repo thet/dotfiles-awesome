@@ -1,32 +1,35 @@
 -- --stolen from http://www.markurashi.de/dotfiles/awesome/rc.lua
 
--- failsafe mode
--- if the current config fail, load the default rc.lua
-
-require("awful")
-require("naughty")
-awful.util.spawn_with_shell("startsession.sh &")
+local awful = require("awful")
+local naughty = require("naughty")
+awful.util.spawn_with_shell("/home/thet/bin/startsession.sh &")
 -- awful.util.spawn_with_shell("xcompmgr -cF &")
 --awful.util.spawn_with_shell("unagi &")
 
 --dofile("/etc/xdg/awesome/rc.lua");
+require("awesome")
 
-confdir = awful.util.getdir("config")
-local rc, err = loadfile(confdir .. "/awesome.lua");
-if rc then
-    rc, err = pcall(rc);
-    if rc then
-        return;
-    end
+-- {{{ Error handling
+-- Check if awesome encountered an error during startup and fell back to
+-- another config (This code will only ever execute for the fallback config)
+if awesome.startup_errors then
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
 end
 
-for s = 1,screen.count() do
-    mypromptbox[s].text = awful.util.escape(err:match("[^\n]*"));
+-- Handle runtime errors after startup
+do
+    local in_error = false
+    awesome.connect_signal("debug::error", function (err)
+        -- Make sure we don't go into an endless error loop
+        if in_error then return end
+        in_error = true
+
+        naughty.notify({ preset = naughty.config.presets.critical,
+                         title = "Oops, an error happened!",
+                         text = err })
+        in_error = false
+    end)
 end
-
-naughty.notify{text="Awesome crashed during startup on " ..
-                os.date("%d%/%m/%Y %T:\n\n")
-                .. err .. "\n", timeout = 0}
-
-
--- vim:set ft=lua fdm=marker ts=4 sw=4 et ai si: --
+-- }}}

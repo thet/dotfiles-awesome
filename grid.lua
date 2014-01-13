@@ -1,4 +1,4 @@
-require("awful")
+local awful = require("awful")
 
 globalkeys = awful.util.table.join(
     globalkeys,
@@ -12,11 +12,11 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = 0
-                    y = wiboxh 
+                    y = wiboxh
                     h = sgeo.height - y
                     return x,y,w,h
                 end
-            ) 
+            )
         end),
     awful.key({modkey, "Control"}, "d",
         function ()
@@ -24,7 +24,7 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = sgeo.width - w
-                    y = wiboxh 
+                    y = wiboxh
                     h = sgeo.height - y
                     return x,y,w,h
                 end
@@ -36,26 +36,26 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = math.floor((sgeo.width - w) / 2)
-                    y = wiboxh 
+                    y = wiboxh
                     h = sgeo.height - y
                     return x,y,w,h
                 end
             )
         end),
-        
+
 
     -- upper
     awful.key({modkey, "Control"}, "q",
-        function() 
+        function()
             set_grid(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = 0
-                    y = wiboxh 
+                    y = wiboxh
                     h = math.floor((sgeo.height - y) / 2)
                     return x,y,w,h
                 end
-            ) 
+            )
         end),
     awful.key({modkey, "Control"}, "e",
         function ()
@@ -63,7 +63,7 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = sgeo.width - w
-                    y = wiboxh 
+                    y = wiboxh
                     h = math.floor((sgeo.height - y) / 2)
                     return x,y,w,h
                 end
@@ -75,7 +75,7 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = math.floor((sgeo.width - w) / 2)
-                    y = wiboxh 
+                    y = wiboxh
                     h = math.floor((sgeo.height - y) / 2)
                     return x,y,w,h
                 end
@@ -85,7 +85,7 @@ globalkeys = awful.util.table.join(
 
     -- lower
     awful.key({modkey, "Control"}, "y",
-        function() 
+        function()
             set_grid(
                 function()
                     w = math.floor(sgeo.width/divisor)
@@ -94,7 +94,7 @@ globalkeys = awful.util.table.join(
                     h = math.floor((sgeo.height - wiboxh) / 2)
                     return x,y,w,h
                 end
-            ) 
+            )
         end),
     awful.key({modkey, "Control"}, "c",
         function ()
@@ -131,11 +131,11 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = 0
-                    y = wiboxh + math.floor(sgeo.height - wiboxh) / 3  
+                    y = wiboxh + math.floor(sgeo.height - wiboxh) / 3
                     h = math.floor(sgeo.height - wiboxh) / 3
                     return x,y,w,h
                 end
-            ) 
+            )
         end),
     awful.key({modkey, "Control", "Shift"}, "d",
         function ()
@@ -143,7 +143,7 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = sgeo.width - w
-                    y = wiboxh + math.floor(sgeo.height - wiboxh) / 3  
+                    y = wiboxh + math.floor(sgeo.height - wiboxh) / 3
                     h = math.floor(sgeo.height - wiboxh) / 3
                     return x,y,w,h
                 end
@@ -155,26 +155,26 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = math.floor((sgeo.width - w) / 2)
-                    y = wiboxh + math.floor(sgeo.height - wiboxh) / 3  
+                    y = wiboxh + math.floor(sgeo.height - wiboxh) / 3
                     h = math.floor(sgeo.height - wiboxh) / 3
                     return x,y,w,h
                 end
             )
         end),
-        
+
 
     -- upper
     awful.key({modkey, "Control", "Shift"}, "q",
-        function() 
+        function()
             set_grid(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = 0
-                    y = wiboxh 
+                    y = wiboxh
                     h = math.floor(sgeo.height - wiboxh) / 3
                     return x,y,w,h
                 end
-            ) 
+            )
         end),
     awful.key({modkey, "Control", "Shift"}, "e",
         function ()
@@ -182,7 +182,7 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = sgeo.width - w
-                    y = wiboxh 
+                    y = wiboxh
                     h = math.floor(sgeo.height - wiboxh) / 3
                     return x,y,w,h
                 end
@@ -194,7 +194,7 @@ globalkeys = awful.util.table.join(
                 function()
                     w = math.floor(sgeo.width/divisor)
                     x = math.floor((sgeo.width - w) / 2)
-                    y = wiboxh 
+                    y = wiboxh
                     h = math.floor(sgeo.height - wiboxh) / 3
                     return x,y,w,h
                 end
@@ -204,7 +204,7 @@ globalkeys = awful.util.table.join(
 
     -- lower
     awful.key({modkey, "Control", "Shift"}, "y",
-        function() 
+        function()
             set_grid(
                 function()
                     w = math.floor(sgeo.width/divisor)
@@ -213,7 +213,7 @@ globalkeys = awful.util.table.join(
                     h = math.floor(sgeo.height - wiboxh) / 3
                     return x,y,w,h
                 end
-            ) 
+            )
         end),
     awful.key({modkey, "Control", "Shift"}, "c",
         function ()
@@ -246,18 +246,18 @@ root.keys(globalkeys)
 
 show_geo = true
 function set_grid(geofun)
-    
+
     curclient = client.focus
-    
+
     -- screen
     scr = curclient.screen
     sgeo = screen[scr].geometry
-     
+
     -- wibox
     wgeo = mywibox[scr]:geometry()
     wvis = mywibox[scr].visible
-    wiboxh = wvis and wgeo.height or 0  
-    
+    wiboxh = wvis and wgeo.height or 0
+
     -- client
     cgeo = curclient:geometry()
     divisor = get_divisor(curclient, cgeo.width, sgeo.width)
@@ -267,7 +267,7 @@ function set_grid(geofun)
     -- awful.client.movetoscreen(curclient, scr)
     curclient:geometry({x=x, y=y, width=w, height=h})
     curclient:raise()
-    
+
     if show_geo then
         naughty.notify({
             text = "x:"..x.." y:"..y.." w:"..w.." h:"..h,
