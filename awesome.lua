@@ -62,6 +62,30 @@ globalkeys = awful.util.table.join(
         end
     ),
 
+    -- Brightness
+    -- http://askubuntu.com/questions/96662/brightness-control-on-awesome-windowing-manager
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("xbacklight -dec 10") end),
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+        awful.util.spawn("xbacklight -inc 10") end),
+
+    -- Keyboard Brightness
+    -- http://keramida.wordpress.com/2013/03/28/controlling-the-keyboard-backlight-from-cli/
+    awful.key({ }, "XF86KbdBrightnessUp", function ()
+        awful.util.spawn("backlight.sh up") end),
+    awful.key({ }, "XF86KbdBrightnessDown", function ()
+        awful.util.spawn("backlight.sh down") end),
+
+    -- Volume Control
+    -- http://awesome.naquadah.org/wiki/Volume_control_and_display
+    awful.key({ }, "XF86AudioRaiseVolume", function ()
+       awful.util.spawn("amixer set Master 9%+") end),
+   awful.key({ }, "XF86AudioLowerVolume", function ()
+       awful.util.spawn("amixer set Master 9%-") end),
+   awful.key({ }, "XF86AudioMute", function ()
+       awful.util.spawn("amixer sset Master toggle") end),
+
+
     -- better screen nav
     awful.key({ modkey            }, 'p', function () awful.screen.focus_relative(1) end),  -- keep modkey-p to disable gnome screen rescan
     awful.key({ modkey            }, 'Up', function () awful.screen.focus_relative(1) end),
