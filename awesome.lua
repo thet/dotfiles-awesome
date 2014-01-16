@@ -70,7 +70,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "Down",    awful.client.movetoscreen),
 
     -- quickstart programs
-    awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nemo") end), -- nautilus alternative nemo
+    awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end), -- nautilus | nemo
     awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("evolution") end),
     awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
     awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("chromium") end),
