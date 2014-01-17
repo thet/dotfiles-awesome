@@ -102,7 +102,7 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Mod1"}, "s", function () awful.util.spawn("skype") end),
     awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("gnome-terminal") end),
     awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gedit") end),
-    awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster-time-tracker") end),
+    awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster") end),
     awful.key({modkey, "Mod1"}, "1", function () awful.util.spawn("gnome-screenshot") end),
     awful.key({modkey, "Mod1"}, "2", function () awful.util.spawn("gnome-screenshot --window") end),
     awful.key({modkey, "Mod1"}, "3", function () awful.util.spawn("gnome-screenshot --interactive") end),
