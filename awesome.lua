@@ -78,12 +78,11 @@ globalkeys = awful.util.table.join(
 
     -- Volume Control
     -- http://awesome.naquadah.org/wiki/Volume_control_and_display
-    awful.key({ }, "XF86AudioRaiseVolume", function ()
-       awful.util.spawn("amixer set Master 9%+") end),
-   awful.key({ }, "XF86AudioLowerVolume", function ()
-       awful.util.spawn("amixer set Master 9%-") end),
-   awful.key({ }, "XF86AudioMute", function ()
-       awful.util.spawn("amixer sset Master toggle") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 9%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 9%-") end),
+    awful.key({"Shift"}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 1%+") end),
+    awful.key({"Shift"}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 1%-") end),
+    awful.key({ }, "XF86AudioMute",        function () awful.util.spawn("amixer sset Master toggle") end),
 
 
     -- better screen nav
