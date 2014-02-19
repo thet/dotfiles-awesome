@@ -2,7 +2,10 @@
 
 local awful = require("awful")
 local naughty = require("naughty")
-awful.util.spawn_with_shell("xcompmgr -cF &")
+
+-- TMP deactivate?
+--awful.util.spawn_with_shell("xcompmgr -cF &")
+
 --awful.util.spawn_with_shell("/home/thet/bin/startsession.sh &")
 --awful.util.spawn_with_shell("unagi &")
 
