@@ -1,12 +1,30 @@
 require("awesome-base")
-require("windowrules")
-require("grid")
+--require("windowrules")
+--require("grid")
 --require("includes/bioe007-awesome-configs/revelation")
 
 local awful = require("awful")
 local beautiful = require("beautiful")
 
 browser = 'firefox'
+
+--local gears = require("gears")
+-- https://bbs.archlinux.org/viewtopic.php?pid=1325314
+-- https://bbs.archlinux.org/viewtopic.php?id=126758
+--{{{ Tag Wallpapers
+--if beautiful.wallpaper then
+--    for s = 1, screen.count() do
+--        for t = 1, 9 do
+--            tags[s][t]:connect_signal("property::selected", function (tag)
+--                if not tag.selected then return end
+--                theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/bfi.org/" .. t .. ".jpg"
+--                gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+--            end)
+--        end
+--    end
+--end
+-- }}}
+
 
 last_selected_tag = nil
 globalkeys = awful.util.table.join(
@@ -39,14 +57,6 @@ globalkeys = awful.util.table.join(
             if client.focus then client.focus:raise() end
         end),
 
-    -- history app switching
-    awful.key({"Mod1"}, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
 
     -- https://wiki.archlinux.org/index.php/Awesome3#Hide_.2F_show_wibox_in_awesome_3
     awful.key({modkey}, "b", function ()
@@ -115,16 +125,16 @@ root.keys(globalkeys)
 
 
 -- Indicate focused windows
-function client_getfocus(c)
-    c.border_color = beautiful.border_focus
-    c.opacity = 1.0
-end
-function client_unfocus(c)
-    c.border_color = beautiful.border_normal
-    c.opacity = 0.90
-end
-client.connect_signal("focus", client_getfocus)
-client.connect_signal("unfocus", client_unfocus)
+--function client_getfocus(c)
+--    c.border_color = beautiful.border_focus
+--    c.opacity = 1.0
+--end
+--function client_unfocus(c)
+--    c.border_color = beautiful.border_normal
+--    c.opacity = 0.90
+--end
+--client.connect_signal("focus", client_getfocus)
+--client.connect_signal("unfocus", client_unfocus)
 
 -- Prevent the mouse scroll wheel from changing tags
 -- https://wiki.archlinux.org/index.php/Awesome#Prevent_the_mouse_scroll_wheel_from_changing_tags

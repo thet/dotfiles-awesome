@@ -61,7 +61,6 @@ if beautiful.wallpaper then
 end
 -- }}}
 
-
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {}
@@ -70,23 +69,6 @@ for s = 1, screen.count() do
     tags[s] = awful.tag({ "1 dev", "2 dev", "3 dev", "4 dok", "5 dok", "6 tmp", "7 musiq", "8 web", "9 irc" }, s, layouts[1])
 end
 -- }}}
-
--- https://bbs.archlinux.org/viewtopic.php?pid=1325314
--- https://bbs.archlinux.org/viewtopic.php?id=126758
---{{{ Tag Wallpapers
---if beautiful.wallpaper then
---    for s = 1, screen.count() do
---        for t = 1, 9 do
---            tags[s][t]:connect_signal("property::selected", function (tag)
---                if not tag.selected then return end
---                theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/bfi.org/" .. t .. ".jpg"
---                gears.wallpaper.maximized(beautiful.wallpaper, s, true)
---            end)
---        end
---    end
---end
--- }}}
-
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
@@ -235,6 +217,13 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
+    awful.key({ modkey,           }, "Tab",
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
@@ -309,16 +298,20 @@ for i = 1, 9 do
                   end),
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
-                      local tag = awful.tag.gettags(client.focus.screen)[i]
-                      if client.focus and tag then
-                          awful.client.movetotag(tag)
+                      if client.focus then
+                          local tag = awful.tag.gettags(client.focus.screen)[i]
+                          if tag then
+                              awful.client.movetotag(tag)
+                          end
                      end
                   end),
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
-                      local tag = awful.tag.gettags(client.focus.screen)[i]
-                      if client.focus and tag then
-                          awful.client.toggletag(tag)
+                      if client.focus then
+                          local tag = awful.tag.gettags(client.focus.screen)[i]
+                          if tag then
+                              awful.client.toggletag(tag)
+                          end
                       end
                   end))
 end
@@ -332,16 +325,37 @@ clientbuttons = awful.util.table.join(
 root.keys(globalkeys)
 -- }}}
 
+-- {{{ Rules
+awful.rules.rules = {
+    -- All clients will match this rule.
+    { rule = { },
+      properties = { border_width = beautiful.border_width,
+                     border_color = beautiful.border_normal,
+                     focus = awful.client.focus.filter,
+                     keys = clientkeys,
+                     buttons = clientbuttons } },
+    { rule = { class = "MPlayer" },
+      properties = { floating = true } },
+    { rule = { class = "pinentry" },
+      properties = { floating = true } },
+    { rule = { class = "gimp" },
+      properties = { floating = true } },
+    -- Set Firefox to always map on tags number 2 of screen 1.
+    -- { rule = { class = "Firefox" },
+    --   properties = { tag = tags[1][2] } },
+}
+-- }}}
+
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     -- Enable sloppy focus
-    --c:connect_signal("mouse::enter", function(c)
-    --    if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-    --        and awful.client.focus.filter(c) then
-    --        client.focus = c
-    --    end
-    --end)
+    c:connect_signal("mouse::enter", function(c)
+        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+            and awful.client.focus.filter(c) then
+            client.focus = c
+        end
+    end)
 
     if not startup then
         -- Set the windows at the slave,
@@ -401,4 +415,6 @@ client.connect_signal("manage", function (c, startup)
     end
 end)
 
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
