@@ -11,7 +11,7 @@ local naughty = require("naughty")
 awful.util.spawn_with_shell("xmodmap ~/.Xmodmap &")
 
 --dofile("/etc/xdg/awesome/rc.lua");
-require("awesome")
+require("awesome-custom")
 --require("awesome-base")
 
 
