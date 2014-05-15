@@ -25,7 +25,6 @@ browser = 'firefox'
 --end
 -- }}}
 
-
 last_selected_tag = nil
 globalkeys = awful.util.table.join(
     globalkeys,
@@ -125,16 +124,16 @@ root.keys(globalkeys)
 
 
 -- Indicate focused windows
---function client_getfocus(c)
---    c.border_color = beautiful.border_focus
---    c.opacity = 1.0
---end
---function client_unfocus(c)
---    c.border_color = beautiful.border_normal
---    c.opacity = 0.90
---end
---client.connect_signal("focus", client_getfocus)
---client.connect_signal("unfocus", client_unfocus)
+function client_getfocus(c)
+    c.border_color = beautiful.border_focus
+    c.opacity = 1.0
+end
+function client_unfocus(c)
+    c.border_color = beautiful.border_normal
+    c.opacity = 0.90
+end
+client.connect_signal("focus", client_getfocus)
+client.connect_signal("unfocus", client_unfocus)
 
 -- Prevent the mouse scroll wheel from changing tags
 -- https://wiki.archlinux.org/index.php/Awesome#Prevent_the_mouse_scroll_wheel_from_changing_tags

@@ -4,10 +4,11 @@ local awful = require("awful")
 local naughty = require("naughty")
 
 -- TMP deactivate?
---awful.util.spawn_with_shell("xcompmgr -cF &")
+awful.util.spawn_with_shell("xcompmgr -cF &")
 --awful.util.spawn_with_shell("unagi &")
 
 --awful.util.spawn_with_shell("/home/thet/bin/startsession.sh &")
+awful.util.spawn_with_shell("gnome-session &")
 awful.util.spawn_with_shell("xmodmap ~/.Xmodmap &")
 
 --dofile("/etc/xdg/awesome/rc.lua");
