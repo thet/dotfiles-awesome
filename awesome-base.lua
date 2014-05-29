@@ -50,17 +50,15 @@ local layouts =
 
 -- {{{ Wallpaper
 if beautiful.wallpaper then
-    theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
-    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-    --for s = 1, screen.count() do
-    --    if s == 2 then
-    --        theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/bfi.org/2.jpg"
-    --        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-    --    else
-    --        theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/bfi.org/1.jpg"
-    --        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-    --    end
-    --end
+    for s = 1, screen.count() do
+        if s == 2 then
+            theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
+            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        else
+            theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
+            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        end
+    end
 end
 -- }}}
 

@@ -73,17 +73,17 @@ globalkeys = awful.util.table.join(
 
     -- Brightness
     -- http://askubuntu.com/questions/96662/brightness-control-on-awesome-windowing-manager
-    awful.key({ }, "XF86MonBrightnessDown", function ()
-        awful.util.spawn("xbacklight -dec 10") end),
     awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("xbacklight -inc 10") end),
+        awful.util.spawn("backlight_mon.sh up") end),
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("backlight_mon.sh down") end),
 
     -- Keyboard Brightness
     -- http://keramida.wordpress.com/2013/03/28/controlling-the-keyboard-backlight-from-cli/
     awful.key({ }, "XF86KbdBrightnessUp", function ()
-        awful.util.spawn("backlight.sh up") end),
+        awful.util.spawn("backlight_key.sh up") end),
     awful.key({ }, "XF86KbdBrightnessDown", function ()
-        awful.util.spawn("backlight.sh down") end),
+        awful.util.spawn("backlight_key.sh down") end),
 
     -- Volume Control
     -- http://awesome.naquadah.org/wiki/Volume_control_and_display
@@ -91,7 +91,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 9%-") end),
     awful.key({"Shift"}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 1%+") end),
     awful.key({"Shift"}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 1%-") end),
-    awful.key({ }, "XF86AudioMute",        function () awful.util.spawn("amixer sset Master toggle") end),
+    awful.key({ }, "XF86AudioMute",        function () awful.util.spawn("amixer set Master toggle") end),
 
 
     -- better screen nav
@@ -101,11 +101,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "Up",      awful.client.movetoscreen),
     awful.key({ modkey, "Shift"   }, "Down",    awful.client.movetoscreen),
 
+    -- setup two monitor
+    awful.key({ modkey, "Shift"   }, "s",
+        function ()
+            awful.util.spawn("standard-two-monitor.sh")
+            awesome.restart()
+        end
+    ),
+
     -- quickstart programs
     awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end), -- nautilus | nemo
     awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("evolution") end),
     awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
-    awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("chromium") end),
+    awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("google-chrome") end),
     awful.key({modkey, "Mod1"}, "p", function () awful.util.spawn("pidgin") end),
     awful.key({modkey, "Mod1"}, "s", function () awful.util.spawn("skype") end),
     awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("gnome-terminal") end),
@@ -132,8 +140,8 @@ function client_unfocus(c)
     c.border_color = beautiful.border_normal
     c.opacity = 0.90
 end
-client.connect_signal("focus", client_getfocus)
-client.connect_signal("unfocus", client_unfocus)
+-- client.connect_signal("focus", client_getfocus)
+-- client.connect_signal("unfocus", client_unfocus)
 
 -- Prevent the mouse scroll wheel from changing tags
 -- https://wiki.archlinux.org/index.php/Awesome#Prevent_the_mouse_scroll_wheel_from_changing_tags
