@@ -110,6 +110,7 @@ globalkeys = awful.util.table.join(
     ),
 
     -- quickstart programs
+    awful.key({modkey, "Mod1"}, "x", function () awful.util.spawn("gnome-control-center") end),
     awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end), -- nautilus | nemo
     awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("evolution") end),
     awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
