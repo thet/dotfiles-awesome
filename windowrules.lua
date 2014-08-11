@@ -18,5 +18,13 @@ awful.rules.rules = {
     { rule = { class = "thunderbird" },
       properties = { floating = false } },
     { rule = { instance = "screenruler" },
-      properties = { floating = true } }
+      properties = { floating = true } },
+    { rule = { class = "Conky" },
+        properties = {
+        floating = true,
+        sticky = true,
+        ontop = false,
+        focusable = false,
+        size_hints = {"program_position", "program_size"}
+    } }
 }

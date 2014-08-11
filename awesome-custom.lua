@@ -126,8 +126,9 @@ globalkeys = awful.util.table.join(
 
     -- disable/enable touchpad
     awful.key({modkey, "Mod1"}, "space", function () awful.util.spawn("xinput disable 11") end),
-    awful.key({modkey, "Mod1", "Control"}, "space", function () awful.util.spawn("xinput enable 11") end)
+    awful.key({modkey, "Mod1", "Control"}, "space", function () awful.util.spawn("xinput enable 11") end),
 
+    awful.key({}, "F10", raise_conky, lower_conky)
 )
 root.keys(globalkeys)
 
@@ -150,3 +151,48 @@ end
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end)))
 -- }}}
+
+
+-- Conky
+-- http://awesome.naquadah.org/wiki/Conky_HUD
+function get_conky()
+    local clients = client.get()
+    local conky = nil
+    local i = 1
+    while clients[i]
+    do
+        if clients[i].class == "Conky"
+        then
+            conky = clients[i]
+        end
+        i = i + 1
+    end
+    return conky
+end
+function raise_conky()
+    local conky = get_conky()
+    if conky
+    then
+        conky.ontop = true
+    end
+end
+function lower_conky()
+    local conky = get_conky()
+    if conky
+    then
+        conky.ontop = false
+    end
+end
+function toggle_conky()
+    local conky = get_conky()
+    if conky
+    then
+        if conky.ontop
+        then
+            conky.ontop = false
+        else
+            conky.ontop = true
+        end
+    end
+end
+
