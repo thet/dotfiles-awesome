@@ -1,4 +1,3 @@
-require("awesome-base")
 --require("windowrules")
 --require("grid")
 --require("includes/bioe007-awesome-configs/revelation")
@@ -123,6 +122,7 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Mod1"}, "1", function () awful.util.spawn("gnome-screenshot") end),
     awful.key({modkey, "Mod1"}, "2", function () awful.util.spawn("gnome-screenshot --window") end),
     awful.key({modkey, "Mod1"}, "3", function () awful.util.spawn("gnome-screenshot --interactive") end),
+    awful.key({modkey, "Mod1"}, "z", function () awful.util.spawn("xmodmap ~/.Xmodmap") end),
 
     -- disable/enable touchpad
     awful.key({modkey, "Mod1"}, "space", function () awful.util.spawn("xinput disable 11") end),

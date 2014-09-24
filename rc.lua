@@ -9,12 +9,10 @@ awful.util.spawn_with_shell("xcompmgr -cF &")
 
 --awful.util.spawn_with_shell("/home/thet/bin/startsession.sh &")
 awful.util.spawn_with_shell("gnome-session &")
-awful.util.spawn_with_shell("xmodmap ~/.Xmodmap &")
-awful.util.spawn_with_shell("redshift &")
 
 --dofile("/etc/xdg/awesome/rc.lua");
+require("awesome-base")
 require("awesome-custom")
---require("awesome-base")
 
 
 -- {{{ Error handling
@@ -41,3 +39,5 @@ do
     end)
 end
 -- }}}
+awful.util.spawn("xmodmap ~/.Xmodmap &")
+awful.util.spawn("redshift &")
