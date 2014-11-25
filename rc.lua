@@ -40,4 +40,4 @@ do
 end
 -- }}}
 awful.util.spawn("xmodmap ~/.Xmodmap &")
-awful.util.spawn("redshift &")
+-- awful.util.spawn("redshift &")
