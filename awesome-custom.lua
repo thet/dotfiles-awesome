@@ -103,7 +103,7 @@ globalkeys = awful.util.table.join(
     -- setup two monitor
     awful.key({ modkey, "Shift"   }, "s",
         function ()
-            awful.util.spawn("standard-two-monitor.sh")
+            awful.util.spawn("screenconfig-thet.sh")
             awesome.restart()
         end
     ),
