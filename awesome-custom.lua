@@ -23,6 +23,25 @@ browser = 'firefox'
 --    end
 --end
 -- }}}
+-- {{{ Wallpaper
+if false and beautiful.wallpaper then
+    for s = 1, screen.count() do
+        if s == 2 then
+            theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
+            -- theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
+            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
+            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        else
+            theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
+            -- theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
+            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
+            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+        end
+    end
+end
+-- }}}
+
+
 
 last_selected_tag = nil
 globalkeys = awful.util.table.join(
@@ -111,7 +130,7 @@ globalkeys = awful.util.table.join(
     -- quickstart programs
     awful.key({modkey, "Mod1"}, "x", function () awful.util.spawn("gnome-control-center") end),
     awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end), -- nautilus | nemo
-    awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("evolution") end),
+    awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("thunderbird") end),
     awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
     awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("google-chrome") end),
     awful.key({modkey, "Mod1"}, "p", function () awful.util.spawn("pidgin") end),
@@ -122,11 +141,11 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Mod1"}, "1", function () awful.util.spawn("gnome-screenshot") end),
     awful.key({modkey, "Mod1"}, "2", function () awful.util.spawn("gnome-screenshot --window") end),
     awful.key({modkey, "Mod1"}, "3", function () awful.util.spawn("gnome-screenshot --interactive") end),
-    awful.key({modkey, "Mod1"}, "z", function () awful.util.spawn("xmodmap ~/.Xmodmap") end),
+    awful.key({modkey, "Mod1"}, "z", function () awful.util.spawn("xmodmap ~/.Xmodmap") end)
 
     -- disable/enable touchpad
-    awful.key({modkey, "Mod1"}, "space", function () awful.util.spawn("xinput disable 11") end),
-    awful.key({modkey, "Mod1", "Control"}, "space", function () awful.util.spawn("xinput enable 11") end)
+    -- awful.key({modkey, "Mod1"}, "space", function () awful.util.spawn("xinput disable 11") end),
+    -- awful.key({modkey, "Mod1", "Control"}, "space", function () awful.util.spawn("xinput enable 11") end)
 
 )
 root.keys(globalkeys)

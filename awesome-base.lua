@@ -48,23 +48,6 @@ local layouts =
 -- }}}
 
 
--- {{{ Wallpaper
-if beautiful.wallpaper then
-    for s = 1, screen.count() do
-        if s == 2 then
-            theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
-            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
-            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-        else
-            theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
-            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
-            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-        end
-    end
-end
--- }}}
-
-
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {}

@@ -8,7 +8,8 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
+-- theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
+-- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
 -- theme.wallpaper = "~/.config/awesome/thet-theme/backgrounds/bfi.org/2.jpg"
 
 -- theme.wallpaper = "~/.config/awesome/thet-theme/backgrounds/spacefun-wallpaper-widescreen.png"
