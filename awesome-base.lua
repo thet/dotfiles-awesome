@@ -16,6 +16,7 @@ local menubar = require("menubar")
 beautiful.init("/home/thet/.config/awesome/thet-theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
+-- terminal = "gnome-terminal"
 terminal = "termit"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
@@ -58,20 +59,20 @@ end
 -- }}}
 
 -- {{{ Menu
--- Create a laucher widget and a main menu
-myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-}
+mymainmenu = awful.menu({
+    items = {
+        { "open terminal", terminal },
+        { "manual", terminal .. " -e man awesome" },
+        { "edit config", editor_cmd .. " " .. awesome.conffile },
+        { "restart", awesome.restart },
+        { "quit", awesome.quit }
+    }
+})
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
-
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+mylauncher = awful.widget.launcher({
+    image = beautiful.awesome_icon,
+    menu = mymainmenu
+})
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -203,13 +204,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),

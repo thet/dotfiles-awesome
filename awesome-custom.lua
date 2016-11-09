@@ -63,15 +63,23 @@ globalkeys = awful.util.table.join(
     --),
 
     -- app switching bound to meta-tab
-    awful.key({'Control'}, "Tab",
+    awful.key({modkey}, "Tab",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({'Control', "Shift"}, "Tab",
+    awful.key({modkey, "Shift"}, "Tab",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
+        end),
+
+    awful.key({"Control"}, "Tab",
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
         end),
 
 
@@ -133,6 +141,7 @@ globalkeys = awful.util.table.join(
     awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("thunderbird") end),
     awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
     awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("google-chrome") end),
+    -- awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("chromium") end),
     awful.key({modkey, "Mod1"}, "p", function () awful.util.spawn("pidgin") end),
     awful.key({modkey, "Mod1"}, "s", function () awful.util.spawn("skype") end),
     awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("gnome-terminal") end),
