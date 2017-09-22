@@ -8,6 +8,8 @@
 
 -- {{{ Main
 theme = {}
+theme.wallpaper = "/home/thet/Pictures/Wallpapers/world_sunlight_wallpaper.jpg"
+
 -- theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
 -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
 -- theme.wallpaper = "~/.config/awesome/thet-theme/backgrounds/bfi.org/2.jpg"
@@ -18,7 +20,7 @@ theme = {}
 -- }}
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font = 'sans 8'
 
 -- {{{ Colors
 theme.fg_normal = "#FFFFFF"

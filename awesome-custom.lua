@@ -24,22 +24,22 @@ browser = 'firefox'
 --end
 -- }}}
 -- {{{ Wallpaper
-if false and beautiful.wallpaper then
-    for s = 1, screen.count() do
-        if s == 2 then
-            theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
-            -- theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
-            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
-            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-        else
-            theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
-            -- theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
-            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
-            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-        end
-    end
-end
--- }}}
+--if false and beautiful.wallpaper then
+--    for s = 1, screen.count() do
+--        if s == 2 then
+--            theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
+--            -- theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
+--            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
+--            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+--        else
+--            theme.wallpaper = "/home/thet/Pictures/1us/n9/14080105.jpg"
+--            -- theme.wallpaper = "/home/thet/Pictures/merken/instance-provides--class-implements.png"
+--            -- theme.wallpaper = "/home/thet-data/dotfiles-awesome/thet-theme/backgrounds/14030017.jpg"
+--            gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+--        end
+--    end
+--end
+--}}}
 
 
 
@@ -93,31 +93,31 @@ globalkeys = awful.util.table.join(
         {},
         "Print",
         function()
-            awful.util.spawn("capscr",false)
+            awful.spawn("capscr",false)
         end
     ),
 
     -- Brightness
     -- http://askubuntu.com/questions/96662/brightness-control-on-awesome-windowing-manager
     awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("backlight_mon.sh up") end),
+        awful.spawn("backlight_mon.sh up") end),
     awful.key({ }, "XF86MonBrightnessDown", function ()
-        awful.util.spawn("backlight_mon.sh down") end),
+        awful.spawn("backlight_mon.sh down") end),
 
     -- Keyboard Brightness
     -- http://keramida.wordpress.com/2013/03/28/controlling-the-keyboard-backlight-from-cli/
     awful.key({ }, "XF86KbdBrightnessUp", function ()
-        awful.util.spawn("backlight_key.sh up") end),
+        awful.spawn("backlight_key.sh up") end),
     awful.key({ }, "XF86KbdBrightnessDown", function ()
-        awful.util.spawn("backlight_key.sh down") end),
+        awful.spawn("backlight_key.sh down") end),
 
     -- Volume Control
     -- http://awesome.naquadah.org/wiki/Volume_control_and_display
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 9%+") end),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 9%-") end),
-    awful.key({"Shift"}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 1%+") end),
-    awful.key({"Shift"}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 1%-") end),
-    awful.key({ }, "XF86AudioMute",        function () awful.util.spawn("amixer set Master toggle") end),
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn("amixer set Master 9%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn("amixer set Master 9%-") end),
+    awful.key({"Shift"}, "XF86AudioRaiseVolume", function () awful.spawn("amixer set Master 1%+") end),
+    awful.key({"Shift"}, "XF86AudioLowerVolume", function () awful.spawn("amixer set Master 1%-") end),
+    awful.key({ }, "XF86AudioMute",        function () awful.spawn("amixer set Master toggle") end),
 
 
     -- better screen nav
@@ -130,31 +130,31 @@ globalkeys = awful.util.table.join(
     -- setup two monitor
     awful.key({ modkey, "Shift"   }, "s",
         function ()
-            awful.util.spawn("screenconfig-thet.sh")
+            awful.spawn("screenconfig-thet.sh")
             awesome.restart()
         end
     ),
 
     -- quickstart programs
-    awful.key({modkey, "Mod1"}, "x", function () awful.util.spawn("gnome-control-center") end),
-    awful.key({modkey, "Mod1"}, "n", function () awful.util.spawn("nautilus") end), -- nautilus | nemo
-    awful.key({modkey, "Mod1"}, "e", function () awful.util.spawn("thunderbird") end),
-    awful.key({modkey, "Mod1"}, "f", function () awful.util.spawn("firefox") end),
-    awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("google-chrome") end),
-    -- awful.key({modkey, "Mod1"}, "c", function () awful.util.spawn("chromium") end),
-    awful.key({modkey, "Mod1"}, "p", function () awful.util.spawn("pidgin") end),
-    awful.key({modkey, "Mod1"}, "s", function () awful.util.spawn("skype") end),
-    awful.key({modkey, "Mod1"}, "t", function () awful.util.spawn("gnome-terminal") end),
-    awful.key({modkey, "Mod1"}, "g", function () awful.util.spawn("gedit") end),
-    awful.key({modkey, "Mod1"}, "h", function () awful.util.spawn("hamster") end),
-    awful.key({modkey, "Mod1"}, "1", function () awful.util.spawn("gnome-screenshot") end),
-    awful.key({modkey, "Mod1"}, "2", function () awful.util.spawn("gnome-screenshot --window") end),
-    awful.key({modkey, "Mod1"}, "3", function () awful.util.spawn("gnome-screenshot --interactive") end),
-    awful.key({modkey, "Mod1"}, "z", function () awful.util.spawn("xmodmap ~/.Xmodmap") end)
+    awful.key({modkey, "Mod1"}, "x", function () awful.spawn("gnome-control-center") end),
+    awful.key({modkey, "Mod1"}, "n", function () awful.spawn("nautilus") end), -- nautilus | nemo
+    awful.key({modkey, "Mod1"}, "e", function () awful.spawn("thunderbird") end),
+    awful.key({modkey, "Mod1"}, "f", function () awful.spawn("firefox") end),
+    awful.key({modkey, "Mod1"}, "c", function () awful.spawn("google-chrome") end),
+    -- awful.key({modkey, "Mod1"}, "c", function () awful.spawn("chromium") end),
+    awful.key({modkey, "Mod1"}, "p", function () awful.spawn("pidgin") end),
+    awful.key({modkey, "Mod1"}, "s", function () awful.spawn("skype") end),
+    awful.key({modkey, "Mod1"}, "t", function () awful.spawn("gnome-terminal") end),
+    awful.key({modkey, "Mod1"}, "g", function () awful.spawn("gedit") end),
+    awful.key({modkey, "Mod1"}, "h", function () awful.spawn("hamster") end),
+    awful.key({modkey, "Mod1"}, "1", function () awful.spawn("gnome-screenshot") end),
+    awful.key({modkey, "Mod1"}, "2", function () awful.spawn("gnome-screenshot --window") end),
+    awful.key({modkey, "Mod1"}, "3", function () awful.spawn("gnome-screenshot --interactive") end),
+    awful.key({modkey, "Mod1"}, "z", function () awful.spawn("xmodmap ~/.Xmodmap") end)
 
     -- disable/enable touchpad
-    -- awful.key({modkey, "Mod1"}, "space", function () awful.util.spawn("xinput disable 11") end),
-    -- awful.key({modkey, "Mod1", "Control"}, "space", function () awful.util.spawn("xinput enable 11") end)
+    -- awful.key({modkey, "Mod1"}, "space", function () awful.spawn("xinput disable 11") end),
+    -- awful.key({modkey, "Mod1", "Control"}, "space", function () awful.spawn("xinput enable 11") end)
 
 )
 root.keys(globalkeys)
